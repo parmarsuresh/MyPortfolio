@@ -1,0 +1,24 @@
+create vite project and upload in GitHub cmd
+
+step 1: npm create vite@latest my-portfolio -- --template react
+step 2: npm run build
+step 3: vite.config.js file add
+  	base: '/MyPortfolio/', // ourrepo neame
+step 4: go to package.json file and add 
+	script -> 
+	
+    	"predeploy": "npm run build",
+    	"deploy": "gh-pages -d dist"
+step 5: npm run build 
+	to create dist folder
+step 6: git init
+step 7: git add .
+step 8: git commit -m "first commit"
+step 9: git branch -M main
+step 10: git remote add origin https://github.com/parmarsuresh/MyPortfolio.git
+step 11: git push -u origin main
+step 12: npm install --save-dev gh-pages
+step 13: npm run deploy
+step 14: after then go to gitub setting page and refesh where you see
+	site url like this
+	Your site is live at https://parmarsuresh.github.io/MyPortfolio/
