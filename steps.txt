@@ -22,3 +22,15 @@ step 13: npm run deploy
 step 14: after then go to gitub setting page and refesh where you see
 	site url like this
 	Your site is live at https://parmarsuresh.github.io/MyPortfolio/
+
+
+	----------- update file steps ------------
+
+step 15: git add .
+step 16: git commit -m "update file"
+step 17: git push origin main
+
+ -- to update live git page command ----
+
+ -- step 18: npm run build
+ -- step 19: npm run deploy
