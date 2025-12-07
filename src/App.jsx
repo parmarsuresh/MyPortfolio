@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
-import Portfolio from "./pages/Portfolio";
+import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 
 // OPTIONAL – Not Found Page
@@ -40,7 +40,7 @@ function App() {
           {/* Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Portfolio />} />
+          <Route path="/projects" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
 
           {/* Catch All Unknown URLs */}

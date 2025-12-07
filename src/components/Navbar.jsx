@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <header className="suresh-header">
-      <div className="container header-content">
+      <div className="header-content">
 
         {/* LEFT – LOGO */}
         <div className="logo">SURESH</div>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <i className="bi bi-grid"></i> Portfolio
+                <i className="bi bi-grid"></i> Projects
               </NavLink>
             </li>
 

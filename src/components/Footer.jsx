@@ -15,11 +15,11 @@ const Footer = () => {
                 {/* SOCIAL ICONS */}
                 <div className="social-links">
 
-                    <a href="https://github.com/" target="_blank">
+                    <a href="https://github.com/parmarsuresh" target="_blank">
                         <i className="bi bi-github"></i>
                     </a>
 
-                    <a href="https://www.linkedin.com/" target="_blank">
+                    <a href="https://www.linkedin.com/in/suresh-p-b1803a219/" target="_blank">
                         <i className="bi bi-linkedin"></i>
                     </a>
 
@@ -28,7 +28,7 @@ const Footer = () => {
                     </a>
 
                     {/* TRAILHEAD */}
-                    <a href="https://trailhead.salesforce.com/" target="_blank">
+                    <a href="https://www.salesforce.com/trailblazer/sparmar103" target="_blank">
                      <img src={trailheadLogo} className="trailhead-icon" alt="Trailhead" />
                     </a>
 

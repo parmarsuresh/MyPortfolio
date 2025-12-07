@@ -1,5 +1,5 @@
 import "./Home.css";
-import heroBg from "../assets/home-bg.jpg";  
+import heroBg from "../assets/photo/home-bg.jpg";  
 import resumePDF from "../assets/resume.pdf";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";

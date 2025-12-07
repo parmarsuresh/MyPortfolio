@@ -1,0 +1,179 @@
+/* --- Variables for Consistency --- */
+:root {
+  --primary-color: #18d26e; /* Vibrant Green */
+  --text-color: #444444;
+  --secondary-bg: #f5f8fd; 
+  --card-bg: #ffffff;
+}
+
+.skills-section {
+  padding: 60px 0;
+  background-color: var(--secondary-bg); /* Use light background for contrast */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* --- Section Header Styling --- */
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 10px auto 0 auto;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #777;
+  font-size: 16px;
+}
+
+/* --- Core Skills (Progress Bars) --- */
+.core-skills-header, .expertise-header {
+    text-align: center;
+    margin: 30px 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.skills-progress-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.skill-progress-item {
+    width: calc(50% - 15px); /* Two skills per row */
+}
+
+.skill-name-percent {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.skill-detail {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+    padding-left: 2px; 
+}
+
+.progress-bar-container {
+    background-color: #e3e6e9;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    /* ANIMATION: Smooth transition for the width property */
+    transition: width 1.5s ease-out; 
+    box-shadow: 0 0 8px rgba(24, 210, 110, 0.6); /* Subtle glow effect */
+}
+
+/* --- Key Expertise (Animated Cards) --- */
+.expertise-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.expertise-card {
+    flex: 1;
+    min-width: 200px;
+    padding: 25px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    border-top: 3px solid var(--primary-color);
+    cursor: pointer; 
+    /* ANIMATION: Prepare for transform and shadow changes */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+.expertise-card:hover {
+    /* ANIMATION: Lifts the card */
+    transform: translateY(-8px); 
+    /* ANIMATION: Makes the shadow bigger */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+    /* Changes the top border color on hover */
+    border-color: var(--text-color); 
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px !important;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expertise-list li {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+    transition: transform 0.2s ease-out; /* ANIMATION: Slight shift on item */
+}
+
+/* ANIMATION: Shift the list items when the card is hovered */
+.expertise-card:hover .expertise-list li {
+    transform: translateX(5px);
+}
+
+.expertise-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .skill-progress-item {
+        width: 100%; /* Stacks progress bars on mobile/tablet */
+    }
+    
+    .expertise-card {
+        min-width: calc(50% - 10px); /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .expertise-card {
+        min-width: 100%; /* One card per row on mobile */
+    }
+}

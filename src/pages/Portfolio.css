@@ -1,0 +1,289 @@
+/* --- Variables for Consistency --- */
+:root {
+    --primary-color: #18d26e; /* Vibrant Green */
+    --text-color: #444444;
+    --card-bg: #ffffff; 
+    --overlay-color: rgba(24, 210, 110, 0.9); 
+}
+
+/* --- Global Container and Section Styling --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 15px;
+}
+
+.portfolio-section {
+    padding: 60px 0;
+    background-color: white; 
+}
+
+/* --- Section Header (Consistent Design) --- */
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 10px auto 0 auto;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #777;
+    font-size: 16px;
+}
+
+/* --- Filter Tabs --- */
+.portfolio-filter {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.portfolio-filter button {
+    background: none;
+    border: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-color);
+    cursor: pointer;
+    margin: 0 5px;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.portfolio-filter button:hover, 
+.portfolio-filter .filter-active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* --- Project Grid Layout (CRITICAL FIXES FOR LIST STYLING) --- */
+.portfolio-grid {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 30px; 
+    margin: 0;
+    padding: 0;
+}
+
+/* FIX: Forces list styling reset with high specificity */
+#portfolio .portfolio-grid {
+    list-style: none;
+    padding: 0;     
+    margin: 0;      
+    display: flex;   
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.portfolio-item-wrap {
+    /* Calculates 3 columns */
+    width: calc(33.333% - 20px); 
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+    background-color: var(--card-bg); /* White background for image-less cards */
+}
+
+/* FIX: Ensures the item wrapper doesn't inherit list styling */
+#portfolio .portfolio-item-wrap {
+    list-style: none;
+    display: block; 
+    width: calc(33.333% - 20px); 
+}
+
+/* ANIMATION: Lift effect on hover */
+.portfolio-item-wrap:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    /* Define minimum height for the card */
+    min-height: 250px; 
+    display: flex; 
+    align-items: flex-start; 
+}
+
+/* ------------------------------------------------------------------ */
+/* --- DETAILS ALWAYS VISIBLE STYLING --- */
+/* ------------------------------------------------------------------ */
+
+.portfolio-info {
+    position: static; /* Allows details to be visible */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: 100%; 
+    width: 100%;
+    
+    /* Initial state: Transparent overlay */
+    background: transparent; 
+    opacity: 1; /* Always visible */
+    transition: 0.4s;
+    color: var(--text-color); /* Initial text color is dark */
+    line-height: 1.5;
+}
+
+/* HOVER STATE: Card turns green and text turns white */
+.portfolio-item-wrap:hover .portfolio-info {
+    opacity: 1; 
+    background: var(--overlay-color); 
+    color: white; 
+}
+
+/* --- Text & Detail Styling (Always Visible) --- */
+/* --- Variables for Consistency --- */
+:root {
+    --primary-color: #18d26e; /* Vibrant Green */
+    --text-color: #444444;
+    --card-bg: #ffffff; 
+    --overlay-color: rgba(24, 210, 110, 0.9); /* This will now be the hover background */
+    --hover-text-color: white; /* New variable for text on hover */
+}
+
+/* --- (The top sections for .container, .section-title, and .portfolio-filter remain the same) --- */
+
+/* --- Project Grid Layout --- */
+.portfolio-grid {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 30px; 
+    margin: 0;
+    padding: 0;
+}
+
+/* FIX: Forces list styling reset with high specificity */
+#portfolio .portfolio-grid {
+    list-style: none;
+    padding: 0;     
+    margin: 0;      
+    display: flex;   
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.portfolio-item-wrap {
+    width: calc(33.333% - 20px); 
+    overflow: hidden;
+    border-radius: 8px;
+    /* Initial box-shadow and white background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-bg); 
+    transition: 0.4s;
+    color: var(--text-color); /* Default text color is dark */
+}
+
+/* 🟢 CRITICAL FIX: APPLY GREEN BACKGROUND AND WHITE TEXT TO THE WHOLE WRAPPER ON HOVER */
+.portfolio-item-wrap:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: var(--overlay-color); /* <-- Fills the ENTIRE card with green */
+    color: var(--hover-text-color); /* <-- Changes all text inside to white */
+}
+
+/* FIX: Ensures the item wrapper doesn't inherit list styling */
+#portfolio .portfolio-item-wrap {
+    list-style: none;
+    display: block; 
+    width: calc(33.333% - 20px); 
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    min-height: 250px; 
+    display: flex; 
+    align-items: flex-start; 
+}
+
+/* --- DETAILS ALWAYS VISIBLE STYLING --- */
+
+.portfolio-info {
+    position: static; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: 100%; 
+    width: 100%;
+    
+    /* Transparent background—the main color comes from the parent (.portfolio-item-wrap) */
+    background: transparent; 
+    opacity: 1; 
+    transition: 0.4s;
+    line-height: 1.5;
+}
+
+/* NO .portfolio-item-wrap:hover .portfolio-info rule is needed now! */
+
+/* --- Text & Detail Styling (Always Visible) --- */
+
+.project-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    transform: translateY(0); 
+    transition: 0.3s;
+}
+
+.project-category {
+    font-size: 14px;
+    margin-bottom: 15px; 
+    transition: 0.3s;
+}
+
+.project-details {
+    opacity: 1; 
+    transform: translateY(0);
+    transition: opacity 0.4s 0.2s, transform 0.4s 0.2s; 
+    flex-grow: 1; 
+}
+
+.portfolio-links {
+    margin-top: 20px;
+    opacity: 0; /* Links start hidden */
+    transition: opacity 0.3s;
+}
+
+/* Links appear on hover */
+.portfolio-item-wrap:hover .portfolio-links {
+    opacity: 1;
+}
+
+.tech-badge {
+    /* Default badge style for non-hovered state */
+    background: rgba(0, 0, 0, 0.1); 
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* Color is inherited from .portfolio-item-wrap (dark initially, white on hover) */
+    color: inherit; 
+}
+
+/* HOVER: Badge background uses transparent white for contrast */
+.portfolio-item-wrap:hover .tech-badge {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- (Rest of the CSS remains the same) --- */
