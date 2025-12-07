@@ -1,0 +1,77 @@
+.suresh-footer {
+  background: #f2f2f2;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.footer-container {
+  text-align: center;
+}
+
+/* COPYRIGHT TEXT */
+.footer-copy {
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #444;
+}
+
+.footer-copy strong {
+  color: #000;
+}
+
+/* SOCIAL ICONS */
+.social-links {
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin: 0 8px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #444;
+  background: white;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.social-links a:hover {
+  border-color: #00bfa6;
+  color: #00bfa6;
+  transform: scale(1.1);
+}
+
+/* TRAILHEAD ICON SIZE */
+.trailhead-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* DESIGNER TEXT */
+.designer-text {
+  font-size: 14px;
+  color: #666;
+}
+
+.designer-text span {
+  color: #00bfa6;
+  font-weight: 600;
+}
+
+
+.trailhead-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: 0.3s ease;
+}
+
+.trailhead-icon:hover {
+  transform: scale(1.15);
+}
