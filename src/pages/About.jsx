@@ -20,7 +20,7 @@ const About = () => {
  // Inside the About component:
   const personalInfo = [
     { label: "Birthday", value: "1 May 1995", icon: "birthday" }, // Assuming a placeholder birthday
-    { label: "Age", value: "30", icon: "age" }, // Assuming a placeholder age
+    { label: "Age", value: "25", icon: "age" }, // Assuming a placeholder age
     // FIX: Remove citations tags from inside the array definition
     { label: "Phone", value: "9327557977", icon: "phone" }, 
     { label: "Email", value: "parmarsuresh542001@gmail.com", icon: "email" }, 

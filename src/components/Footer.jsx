@@ -38,7 +38,7 @@ const Footer = () => {
 
                 {/* DESIGNED BY */}
                 <p className="designer-text">
-                    Designed by <span>YourName</span> • Powered by React
+                    Designed by <span>Suresh Parmar</span> • Powered by React
                 </p>
 
             </div>
