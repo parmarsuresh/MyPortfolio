@@ -1,7 +1,37 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; URL=./index.html" />
-  </head>
-  <body></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="logo">YourBrandName</a>
+        </header>
+
+        <main class="content">
+            <h1 class="error-code">404</h1>
+            <h2>Oops! You seem to be lost.</h2>
+            <p>The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+
+            <form action="/search" method="get" class="search-form">
+                <input type="text" name="q" placeholder="Try searching here..." required>
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="nav-links">
+                <a href="/" class="btn primary">Go to Homepage</a>
+                <a href="/contact" class="btn secondary">Contact Support</a>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 YourBrand. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
 </html>

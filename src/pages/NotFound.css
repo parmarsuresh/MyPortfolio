@@ -1,0 +1,89 @@
+/* Container and Centering */
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background */
+    text-align: center;
+}
+
+.content-box {
+    max-width: 500px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons and Main Heading */
+.icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: 900;
+    color: #e63946; /* A bold error color (Red/Crimson) */
+    margin: 0 0 10px 0;
+    line-height: 1;
+}
+
+.title {
+    font-size: 2rem;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Button Styling */
+.home-button {
+    background-color: #007bff; /* Primary Action Color (Blue) */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Secondary Links */
+.support-links {
+    font-size: 0.95rem;
+}
+
+.support-links .link {
+    color: #6c757d;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.support-links .link:hover {
+    color: #007bff; /* Highlight on hover */
+    text-decoration: underline;
+}
+
+.separator {
+    color: #ced4da;
+}

@@ -1,94 +1,49 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import resumePDF from "../assets/resume.pdf";
-import "./Navbar.css";
+import React from "react";
+import trailheadLogo from "../assets/trailhead.png"
+import "./Footer.css";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const NotFound = () => {
+    return (
+        <footer className="suresh-footer">
+            <div className="footer-container text-center">
 
-  return (
-    <header className="suresh-header">
-      <div className="header-content">
+                {/* COPYRIGHT */}
+                <p className="footer-copy">
+                    © Copyright <strong>Suresh Parmar</strong> All Rights Reserved
+                </p>
 
-        {/* LEFT – LOGO */}
-        <div className="logo">SURESH</div>
+                {/* SOCIAL ICONS */}
+                <div className="social-links">
 
-        {/* CENTER – NAV MENU */}
-        <nav className={menuOpen ? "nav-menu active" : "nav-menu"}>
-          <ul>
+                    <a href="https://github.com/parmarsuresh" target="_blank">
+                        <i className="bi bi-github"></i>
+                    </a>
 
-            <li>
-              <NavLink
-                to="/"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <i className="bi bi-house-door"></i> Home
-              </NavLink>
-            </li>
+                    <a href="https://www.linkedin.com/in/suresh-p-b1803a219/" target="_blank">
+                        <i className="bi bi-linkedin"></i>
+                    </a>
 
-            <li>
-              <NavLink
-                to="/about"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <i className="bi bi-person"></i> About
-              </NavLink>
-            </li>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <i className="bi bi-instagram"></i>
+                    </a>
 
-            <li>
-              <a
-                href={resumePDF}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-              >
-                <i className="bi bi-file-earmark-text"></i> Resume
-              </a>
-            </li>
+                    {/* TRAILHEAD */}
+                    <a href="https://www.salesforce.com/trailblazer/sparmar103" target="_blank">
+                     <img src={trailheadLogo} className="trailhead-icon" alt="Trailhead" />
+                    </a>
 
-            <li>
-              <NavLink
-                to="/skills"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <i className="bi bi-lightning-charge"></i> Skills
-              </NavLink>
-            </li>
 
-            <li>
-              <NavLink
-                to="/projects"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <i className="bi bi-grid"></i> Projects
-              </NavLink>
-            </li>
 
-            <li>
-              <NavLink
-                to="/contact"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <i className="bi bi-envelope"></i> Contact
-              </NavLink>
-            </li>
+                </div>
 
-          </ul>
-        </nav>
+                {/* DESIGNED BY */}
+                <p className="designer-text">
+                    Designed by <span>Suresh Parmar</span> • Powered by React
+                </p>
 
-        {/* MOBILE HAMBURGER BUTTON */}
-        <div className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          <i className="bi bi-list"></i>
-        </div>
-
-      </div>
-    </header>
-  );
+            </div>
+        </footer>
+    );
 };
 
-export default Navbar;
+export default Footer;
