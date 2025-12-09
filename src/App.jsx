@@ -9,8 +9,8 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Project from "./pages/Project";
 import Contact from "./pages/Contact";
-
-const NotFound = () => <h1 style={{ padding: "60px" }}>404 - Page Not Found</h1>;
+import NotFound from "./pages/NotFound";
+import Certificates from "./pages/Certificates";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +38,7 @@ function App() {
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/certificates" element={<Certificates />} />
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
