@@ -1,175 +1,122 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
-    // 🚨 IMPORTANT: Use the correct, verified Formspree hash ID.
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/meoylozn"; 
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykzvjnn"; 
 
-    // State to manage form inputs
     const [formData, setFormData] = useState({
         name: '',
-        email: '', // State key is 'email'
+        email: '',
         subject: '',
         message: ''
     });
 
-    // State for UI feedback
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [statusMessage, setStatusMessage] = useState(null); // 'success', 'error', or null
+    const [status, setStatus] = useState({ type: null, message: "" });
 
     const handleChange = (e) => {
-        // Clear any previous status message on input change
-        setStatusMessage(null);
-        // Correctly uses e.target.name (which is 'name', 'email', 'subject', or 'message')
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setStatusMessage(null); // Clear previous status
-
-        // 🔑 CRITICAL FIX: Destructure and rename the email key for Formspree
-        const { email, ...restOfData } = formData;
-        const payload = {
-            ...restOfData,
-            // Formspree requires the sender's email to be named '_replyto'
-            // or sometimes just 'email' for a proper reply function. 
-            // We use '_replyto' for explicit compatibility.
-            _replyto: email 
-        };
+        setStatus({ type: null, message: "" });
 
         try {
             const response = await fetch(FORMSPREE_ENDPOINT, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                // Send the structured payload
-                body: JSON.stringify(payload), 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData), // Formspree handles 'email' automatically now
             });
 
             if (response.ok) {
-                // SUCCESS: Show popup, clear form inputs
-                setStatusMessage('success');
-                setFormData({ name: '', email: '', subject: '', message: '' }); // Value vanish
+                setStatus({ 
+                    type: 'success', 
+                    message: "✅ Message Sent! I'll get back to you soon." 
+                });
+                setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
-                // ERROR: Show error message
-                setStatusMessage('error');
+                setStatus({ 
+                    type: 'error', 
+                    message: "❌ Something went wrong. Please try again." 
+                });
             }
         } catch (error) {
-            console.error("Form Submission Error:", error);
-            setStatusMessage('error');
+            setStatus({ 
+                type: 'error', 
+                message: "❌ Connection error. Check your internet." 
+            });
         } finally {
             setIsSubmitting(false);
+            // Automatically hide status after 5 seconds
+            setTimeout(() => setStatus({ type: null, message: "" }), 5000);
         }
-    };
-
-    // Helper function to render the status message popup
-    const renderStatus = () => {
-        if (!statusMessage) return null;
-
-        let messageText = "";
-        let isSuccess = statusMessage === 'success';
-
-        if (isSuccess) {
-            messageText = "✅ Message Sent Successfully! We'll get back to you soon.";
-        } else {
-            messageText = "❌ Error: Could not send message. Please check your Formspree ID or try again later.";
-        }
-
-        return (
-            <div className={`status-popup ${isSuccess ? 'success' : 'error'}`}>
-                {messageText}
-            </div>
-        );
     };
 
     return (
         <section id="contact" className="contact-section">
             <div className="container">
                 <div className="section-header">
-                    <h2 className="section-title">Contact</h2>
-                    <p className="section-subtitle">
-                        Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
-                    </p>
+                    <h2 className="section-title">Contact Me</h2>
+                    <p className="section-subtitle">Have a project in mind? Let's build something great together.</p>
                 </div>
 
                 <div className="contact-content">
-                    {/* --- Left Column: Info and Map (unchanged) --- */}
                     <div className="contact-info-col">
-                        {/* ... Info Cards ... */}
-                        <div className="map-container">
-                            <iframe
-                                src="https://maps.google.com/maps?q=21.17,72.83&z=12&ie=UTF8&output=embed"
-                                frameBorder="0"
-                                style={{ border: 0, width: '100%', height: '270px' }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Google Map Location (Surat, Gujarat)"
-                            ></iframe>
+                        <div className="contact-info-card">
+                            <div className="info-item">
+                                <div className="icon-box"><FontAwesomeIcon icon={faLocationDot} /></div>
+                                <div><h4>Location:</h4><p>Surat, Gujarat, India</p></div>
+                            </div>
+                            <div className="info-item">
+                                <div className="icon-box"><FontAwesomeIcon icon={faPhone} /></div>
+                                <div><h4>Call:</h4><p>+91 9327557977</p></div>
+                            </div>
+                            <div className="info-item">
+                                <div className="icon-box"><FontAwesomeIcon icon={faEnvelope} /></div>
+                                <div><h4>Email:</h4><p>parmarsuresh542001@gmail.com</p></div>
+                            </div>
+                            <div className="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238132.6372739284!2d72.682208!3d21.1702401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000"
+                                    style={{ border: 0, width: '100%', height: '100%' }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    title="Surat Location Map"
+                                ></iframe>
+                            </div>
                         </div>
                     </div>
 
-                    {/* --- Right Column: Contact Form --- */}
                     <div className="contact-form-col">
-                        {/* Render status message at the top of the form */}
-                        {renderStatus()}
+                        {status.type && (
+                            <div className={`status-popup ${status.type}`}>
+                                {status.message}
+                            </div>
+                        )}
 
-                        <form
-                            onSubmit={handleSubmit} // Use JavaScript submission
-                            className="email-form"
-                        >
+                        <form onSubmit={handleSubmit} className="email-form">
                             <div className="row">
                                 <div className="form-group half-width">
-                                    <label htmlFor="name">Your Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        required
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                    />
+                                    <label>Your Name</label>
+                                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
                                 </div>
                                 <div className="form-group half-width">
-                                    <label htmlFor="email">Your Email</label>
-                                    <input
-                                        type="email"
-                                        name="email" // 🔑 CORRECTED: Matches state key
-                                        id="email"
-                                        required
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                    />
+                                    <label>Your Email</label>
+                                    <input type="email" name="email" value={formData.email} onChange={handleChange} required />
                                 </div>
                             </div>
-
                             <div className="form-group">
-                                <label htmlFor="subject">Subject</label>
-                                <input
-                                    type="text"
-                                    name="subject"
-                                    id="subject"
-                                    required
-                                    value={formData.subject}
-                                    onChange={handleChange}
-                                />
+                                <label>Subject</label>
+                                <input type="text" name="subject" value={formData.subject} onChange={handleChange} required />
                             </div>
-
                             <div className="form-group">
-                                <label htmlFor="message">Message</label>
-                                <textarea
-                                    name="message"
-                                    id="message"
-                                    rows="10"
-                                    required
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                ></textarea>
+                                <label>Message</label>
+                                <textarea name="message" rows="6" value={formData.message} onChange={handleChange} required></textarea>
                             </div>
-
                             <div className="text-center">
                                 <button type="submit" className="send-message-btn" disabled={isSubmitting}>
                                     {isSubmitting ? 'Sending...' : 'Send Message'}

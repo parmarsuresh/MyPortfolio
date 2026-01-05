@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="header-content">
 
         {/* LEFT – LOGO */}
-        <div className="logo">SURESH</div>
+        <div className="logo">SURESH PARMAR</div>
 
         {/* CENTER – NAV MENU */}
         <nav className={menuOpen ? "nav-menu active" : "nav-menu"}>

@@ -1,77 +1,107 @@
-.suresh-footer {
-  background: #f2f2f2;
-  padding: 40px 0;
-  width: 100%;
+:root {
+  --footer-bg: #f8f9fa;
+  --accent-color: #18d26e; /* Using your green primary color */
+  --text-footer: #555;
+  --transition: all 0.3s ease;
 }
 
-.footer-container {
+.suresh-footer {
+  background: var(--footer-bg);
+  padding: 50px 0;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   text-align: center;
 }
 
 /* COPYRIGHT TEXT */
 .footer-copy {
-  margin-bottom: 20px;
   font-size: 15px;
-  color: #444;
+  color: var(--text-footer);
+  margin: 0;
 }
 
 .footer-copy strong {
-  color: #000;
+  color: #222;
 }
 
 /* SOCIAL ICONS */
 .social-links {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .social-links a {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 40px;
-  margin: 0 8px;
-  border: 2px solid #ccc;
+  height: 45px;
+  width: 45px;
+  background: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 50%;
-  font-size: 18px;
-  color: #444;
-  background: white;
-  transition: 0.3s;
+  font-size: 20px;
+  color: var(--text-footer);
+  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-decoration: none;
 }
 
 /* Hover effect */
 .social-links a:hover {
-  border-color: #00bfa6;
-  color: #00bfa6;
-  transform: scale(1.1);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(24, 210, 110, 0.3);
 }
 
-/* TRAILHEAD ICON SIZE */
-.trailhead-icon {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-/* DESIGNER TEXT */
-.designer-text {
-  font-size: 14px;
-  color: #666;
-}
-
-.designer-text span {
-  color: #00bfa6;
-  font-weight: 600;
-}
-
-
+/* TRAILHEAD ICON */
 .trailhead-icon {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  transition: 0.3s ease;
+  filter: grayscale(100%); /* Keeps it professional until hover */
+  transition: var(--transition);
 }
 
-.trailhead-icon:hover {
-  transform: scale(1.15);
+.social-links a:hover .trailhead-icon {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* DESIGNER TEXT */
+.designer-text {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.designer-text span {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .suresh-footer {
+    padding: 40px 0;
+  }
+  
+  .footer-copy {
+    font-size: 14px;
+  }
+
+  .social-links a {
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+  }
 }
